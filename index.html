@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZAB — حلول الويب والشبكات</title>
+  <meta name="description" content="AZAB — استوديو متخصص في تطوير الويب وربط الشبكات والبنية التحتية." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="loading">
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">AZAB</div>
+      <div class="preloader-bar"><span id="preBar"></span></div>
+      <div class="preloader-count"><span id="preCount">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- الخلفية -->
+  <div class="bg" aria-hidden="true">
+    <canvas class="bg-canvas" id="netCanvas"></canvas>
+    <div class="bg-glow a"></div>
+    <div class="bg-glow b"></div>
+    <div class="bg-glow c"></div>
+  </div>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Section Navigation Dots -->
+  <div class="section-nav" id="sectionNav">
+    <a href="#home" data-section="home" data-label="الرئيسية" class="active" aria-label="الرئيسية"></a>
+    <a href="#showcase" data-section="showcase" data-label="الفيديو" aria-label="الفيديو"></a>
+    <a href="#web" data-section="web" data-label="تطوير الويب" aria-label="تطوير الويب"></a>
+    <a href="#network" data-section="network" data-label="الشبكات" aria-label="الشبكات"></a>
+    <a href="#projects" data-section="projects" data-label="المشاريع" aria-label="المشاريع"></a>
+    <a href="#contact" data-section="contact" data-label="تواصل" aria-label="تواصل"></a>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">
+        <span class="logo-mark">A</span><span>AZAB</span>
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">الرئيسية</a></li>
+          <li><a href="#showcase">تعرّف علينا</a></li>
+          <li><a href="#web">تطوير الويب</a></li>
+          <li><a href="#network">ربط الشبكات</a></li>
+          <li><a href="#projects">مشاريعنا</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="cmdk-trigger" id="cmdkBtn" aria-label="بحث">
+          <span>🔍 بحث</span><kbd>⌘K</kbd>
+        </button>
+        <button class="icon-btn" id="themeBtn" aria-label="الوضع">🌙</button>
+        <button class="icon-btn burger" id="burger" aria-label="القائمة">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="container">
+      <span class="hero-badge"><span class="live-dot"></span>متاحون لمشاريع جديدة</span>
+      <h1 id="heroTitle"></h1>
+      <p class="lead">
+        نحوّل الأفكار إلى <span class="typed-wrap"><span id="typed"></span><span class="cursor-blink"></span></span>
+        ونربط الشبكات لبناء عالم تقني متصل.
+      </p>
+      <div class="hero-btns">
+        <a href="#showcase" class="btn btn-primary magnetic">🎬 شاهد الفيديو التعريفي</a>
+        <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدماتكم" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp magnetic">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          واتساب
+        </a>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>WEB DESIGN</span><span class="dot">✦</span>
+        <span>NETWORKING</span><span class="dot">✦</span>
+        <span>CISCO</span><span class="dot">✦</span>
+        <span>INFRASTRUCTURE</span><span class="dot">✦</span>
+        <span>WEB DESIGN</span><span class="dot">✦</span>
+        <span>NETWORKING</span><span class="dot">✦</span>
+        <span>CISCO</span><span class="dot">✦</span>
+        <span>INFRASTRUCTURE</span><span class="dot">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="video-section" id="showcase">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">COMPANY PROFILE</span>
+        <h2>🎬 تعرّف على AZAB</h2>
+        <p>شاهد الفيديو التعريفي الذي يوضح رؤيتنا ورسالتنا وخدماتنا في عالم الويب والشبكات.</p>
+      </div>
+
+      <!-- 🎥 المسار: videos/azab-company-profile.mp4 -->
+      <div class="video-wrap reveal" id="videoWrap"
+           data-video="videos/azab-company-profile.mp4"
+           data-type="local">
+
+        <div class="video-poster" id="videoPoster">
+          <div class="video-overlay">
+            <div class="play-icon">▶</div>
+            <h3>AZAB — Company Profile</h3>
+            <p>الفيديو التعريفي لشركة AZAB | حلول الويب والشبكات</p>
+          </div>
+        </div>
+
+        <div class="video-player" id="videoPlayer"></div>
+        <button class="video-close" id="videoClose" aria-label="إغلاق الفيديو">✕</button>
+      </div>
+
+      <p class="video-caption">▶ اضغط للمشاهدة — فيديو تعريفي عن الشركة</p>
+
+      <div class="company-facts reveal">
+        <div class="fact">
+          <span class="fact-icon">🏢</span>
+          <div>
+            <h4>من نحن</h4>
+            <p>شركة متخصصة في حلول الويب والشبكات والبنية التحتية.</p>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">🎯</span>
+          <div>
+            <h4>رؤيتنا</h4>
+            <p>بناء عالم تقني أكثر ترابطًا وأمانًا للأفراد والشركات.</p>
+          </div>
+        </div>
+        <div class="fact">
+          <span class="fact-icon">⚙️</span>
+          <div>
+            <h4>خدماتنا</h4>
+            <p>تطوير الويب، ربط الشبكات، وإعداد البنية التحتية.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Services -->
+  <section id="web">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">WEB DEVELOPMENT</span>
+        <h2>💻 تطوير وتصميم الويب</h2>
+        <p>نبني مواقع حديثة، سريعة، ومتجاوبة تعكس هوية علامتك التجارية.</p>
+      </div>
+
+      <div class="service-block">
+        <div class="service-content reveal">
+          <span class="tag-num">01 / 02</span>
+          <h3>تصميم المواقع</h3>
+          <p>نصمم صفحات ويب حديثة ومتجاوبة بهوية بصرية مميزة، تمنح زوارك تجربة سلسة تعزز ثقتهم بعلامتك.</p>
+          <ul class="service-list">
+            <li><span class="check">✓</span> تصميم متجاوب لكل الأجهزة</li>
+            <li><span class="check">✓</span> هوية بصرية متكاملة</li>
+            <li><span class="check">✓</span> تجربة مستخدم مدروسة</li>
+          </ul>
+          <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدمة%20تصميم%20المواقع"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-whatsapp magnetic" style="padding:.7rem 1.5rem;font-size:.88rem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            استفسر عبر واتساب
+          </a>
+        </div>
+        <div class="service-visual reveal">
+          <div class="big-icon">🎨</div>
+        </div>
+      </div>
+
+      <div class="service-block reverse">
+        <div class="service-content reveal">
+          <span class="tag-num">02 / 02</span>
+          <h3>تطوير الواجهات</h3>
+          <p>إنشاء صفحات منظمة باستخدام HTML وCSS، مع تحسين تجربة المستخدم وضمان أداء عالٍ على جميع المتصفحات.</p>
+          <ul class="service-list">
+            <li><span class="check">✓</span> كود نظيف وسريع</li>
+            <li><span class="check">✓</span> توافق مع كل المتصفحات</li>
+            <li><span class="check">✓</span> تحسين محركات البحث</li>
+          </ul>
+          <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدمة%20تطوير%20الواجهات"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-whatsapp magnetic" style="padding:.7rem 1.5rem;font-size:.88rem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            استفسر عبر واتساب
+          </a>
+        </div>
+        <div class="service-visual reveal">
+          <div class="big-icon">⚡</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network Services -->
+  <section id="network">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">NETWORKING</span>
+        <h2>🌐 ربط الشبكات والبنية التحتية</h2>
+        <p>نبني شبكات أكثر ترابطًا وأمانًا باحترافية عالية.</p>
+      </div>
+
+      <div class="service-block">
+        <div class="service-content reveal">
+          <span class="tag-num">03 / 04</span>
+          <h3>ربط الشبكات</h3>
+          <p>ربط عدة شبكات باستخدام الراوترات والسويتشات في Cisco Packet Tracer، مع محاكاة واقعية للبيئات المعقدة.</p>
+          <ul class="service-list">
+            <li><span class="check">✓</span> إعداد الراوترات والسويتشات</li>
+            <li><span class="check">✓</span> محاكاة كاملة للشبكة</li>
+            <li><span class="check">✓</span> اختبار الاتصال بين الأجهزة</li>
+          </ul>
+          <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدمة%20ربط%20الشبكات"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-whatsapp magnetic" style="padding:.7rem 1.5rem;font-size:.88rem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            استفسر عبر واتساب
+          </a>
+        </div>
+        <div class="service-visual reveal">
+          <div class="big-icon">🔗</div>
+        </div>
+      </div>
+
+      <div class="service-block reverse">
+        <div class="service-content reveal">
+          <span class="tag-num">04 / 04</span>
+          <h3>خدمات الشبكات</h3>
+          <p>إعداد خدمات DHCP وDNS، توزيع عناوين IP، واختبار الاتصال بين الأجهزة لضمان شبكة موثوقة.</p>
+          <ul class="service-list">
+            <li><span class="check">✓</span> إعداد DHCP وDNS</li>
+            <li><span class="check">✓</span> توزيع عناوين IP ديناميكيًا</li>
+            <li><span class="check">✓</span> خادم ويب داخلي</li>
+          </ul>
+          <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدمات%20الشبكات"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-whatsapp magnetic" style="padding:.7rem 1.5rem;font-size:.88rem">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            استفسر عبر واتساب
+          </a>
+        </div>
+        <div class="service-visual reveal">
+          <div class="big-icon">📡</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="tag">OUR WORK</span>
+        <h2>مشاريعنا التقنية</h2>
+        <p>نماذج من أعمالنا في تطوير الويب وربط الشبكات.</p>
+      </div>
+
+      <div class="bento">
+        <article class="bento-card featured reveal tilt">
+          <span class="corner">FEATURED</span>
+          <div class="ico">🌐</div>
+          <h3>مشاريع تطوير الويب</h3>
+          <p>مواقع تعريفية وصفحات خدمات بتصميم واضح واحترافي، جاهزة للانطلاق.</p>
+        </article>
+        <article class="bento-card reveal tilt">
+          <div class="ico">🔌</div>
+          <h3>شبكات متعددة</h3>
+          <p>ربط شبكات Cisco في Packet Tracer.</p>
+        </article>
+        <article class="bento-card reveal tilt">
+          <div class="ico">📍</div>
+          <h3>عناوين ديناميكية</h3>
+          <p>إعداد DHCP لتوزيع IP تلقائيًا.</p>
+        </article>
+        <article class="bento-card reveal tilt">
+          <div class="ico">🖥️</div>
+          <h3>خادم ويب داخلي</h3>
+          <p>استضافة www.azab.com داخل الشبكة والوصول إليه من جميع الأجهزة.</p>
+        </article>
+        <article class="bento-card reveal tilt">
+          <div class="ico">🛡️</div>
+          <h3>أمان الشبكة</h3>
+          <p>إعدادات حماية أساسية.</p>
+        </article>
+        <article class="bento-card reveal tilt">
+          <div class="ico">🚀</div>
+          <h3>أداء عالٍ</h3>
+          <p>تحسين مستمر للسرعة.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section>
+    <div class="container">
+      <div class="stats reveal">
+        <div class="stat"><span class="num" data-target="120" data-suffix="+">0</span><div class="lbl">مشروع منجز</div></div>
+        <div class="stat"><span class="num" data-target="98" data-suffix="%">0</span><div class="lbl">رضا العملاء</div></div>
+        <div class="stat"><span class="num" data-target="24" data-suffix="/7">0</span><div class="lbl">دعم متواصل</div></div>
+        <div class="stat"><span class="num" data-target="15" data-suffix="+">0</span><div class="lbl">شبكة مُنشأة</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2>جاهز للانطلاق؟</h2>
+        <p>أخبرنا عن فكرتك، وسنحوّلها إلى تجربة رقمية يستحيل نسيانها.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1">
+          <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدماتكم"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-whatsapp magnetic">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            تواصل عبر واتساب
+          </a>
+          <a href="mailto:hello@azab.com" class="btn btn-ghost magnetic">راسلنا عبر البريد ←</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot-inner">
+      <p>© <span id="year"></span> AZAB — جميع الحقوق محفوظة.</p>
+      <div class="foot-clock"><span class="pulse"></span><span id="clock">--:--:--</span></div>
+      <div class="socials">
+        <a href="https://wa.me/967778576860" target="_blank" rel="noopener noreferrer" aria-label="واتساب" title="واتساب" class="wa">✆</a>
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="العودة للأعلى">↑</button>
+
+  <a href="https://wa.me/967778576860?text=مرحباً%20AZAB%2C%20أريد%20الاستفسار%20عن%20خدماتكم"
+     class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+     aria-label="تواصل عبر واتساب">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="tip">تحدث معنا الآن</span>
+  </a>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="cmdk" id="cmdk">
+    <div class="cmdk-box">
+      <input type="text" class="cmdk-input" id="cmdkInput" placeholder="ابحث عن قسم أو أمر..." />
+      <div class="cmdk-list" id="cmdkList"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
